@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "564533962743",
+    "project_id": "edu-league",
+    "storage_bucket": "edu-league.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564533962743:android:bc51b9510497813f5330f2",
+        "android_client_info": {
+          "package_name": "com.sanjeet.expiry_date"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564533962743-70ecnul55c34gkjlvcni6pphh0q1bm60.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sanjeet.expiry_date",
+            "certificate_hash": "7744d9e4e03e33a192a5f7218e6c2e13d2ef230e"
+          }
+        },
+        {
+          "client_id": "564533962743-bvm1hn7no2smh2o4q59a4ghe23ut0anb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFBcMqcSGf8Ln3wnQz8YtLgyTf92McQ_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564533962743-bvm1hn7no2smh2o4q59a4ghe23ut0anb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
