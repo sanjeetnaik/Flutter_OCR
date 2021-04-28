@@ -9,7 +9,23 @@ class Data extends StatelessWidget {
   createwidget(var lss) {
     List<Widget> lsofwidgets = [];
     for (int i = 0; i < ls.length; i++) {
-      lsofwidgets.add(Text(lss[i]));
+      lsofwidgets.add(Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: Colors.blue.withOpacity(0.8),
+        ),
+        height: 150,
+        width: 350,
+        child: Center(
+            child: Text(
+          lss[i],
+          style: TextStyle(fontSize: 20, color: Colors.white),
+          textAlign: TextAlign.center,
+        )),
+      ));
+      lsofwidgets.add(SizedBox(
+        height: 15,
+      ));
     }
     return lsofwidgets;
   }
@@ -34,18 +50,16 @@ class Data extends StatelessWidget {
           appBar: AppBar(
             title: Text("Previous Data"),
           ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: returns,
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: returns,
+              ),
+            ),
           ),
         );
-        // print(abc);
-        // return Scaffold(
-        //   body: Column(
-        //     children: [
-        //       abc.forEach((doc, index) => {Text(doc)})
-        //     ],
-        //   ),
       },
     );
   }

@@ -156,6 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 220.0,
                       width: 220.0,
                       decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
                           image: DecorationImage(
                               image: FileImage(pickedImage),
                               fit: BoxFit.cover))),
@@ -164,44 +165,84 @@ class _MyHomePageState extends State<MyHomePage> {
           SizedBox(
             height: 60,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              RaisedButton(
-                child: Text('Click an image'),
-                onPressed: pickImage,
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              RaisedButton(
-                child: Text('Pick an image'),
-                onPressed: pickImagee,
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              RaisedButton(
-                  color: Colors.blue,
-                  child: Text('Read Text'),
-                  onPressed: () async {
-                    await readText();
-                    await addData();
-                  }),
-              SizedBox(
-                height: 12,
-              ),
-              RaisedButton(
-                color: Colors.pink,
-                child: Text('Read Previous Data'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Data()),
-                  );
-                },
-              ),
-            ],
+          SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  height: 60,
+                  width: 170,
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(40)),
+                  child: FlatButton(
+                    child: Text(
+                      'Click an image',
+                      style: TextStyle(color: Colors.white, fontSize: 17),
+                    ),
+                    onPressed: pickImage,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: 60,
+                  width: 170,
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(40)),
+                  child: FlatButton(
+                    child: Text(
+                      'Pick an image',
+                      style: TextStyle(color: Colors.white, fontSize: 17),
+                    ),
+                    onPressed: pickImagee,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: 60,
+                  width: 170,
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(40)),
+                  child: FlatButton(
+                      child: Text(
+                        'Read Text',
+                        style: TextStyle(color: Colors.white, fontSize: 17),
+                      ),
+                      onPressed: () async {
+                        await readText();
+                        await addData();
+                      }),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: 60,
+                  width: 170,
+                  decoration: BoxDecoration(
+                      color: Colors.redAccent,
+                      borderRadius: BorderRadius.circular(40)),
+                  child: FlatButton(
+                    child: Text(
+                      'Previous Data',
+                      style: TextStyle(color: Colors.white, fontSize: 17),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Data()),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
