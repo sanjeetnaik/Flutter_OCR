@@ -55,7 +55,25 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  readData() async {}
+  readDataa() async {
+    FirebaseStorage storage = FirebaseStorage.instance;
+    String url;
+    Reference ref = storage.ref().child("image1" + DateTime.now().toString());
+    UploadTask uploadTask = ref.putFile(pickedImage);
+    uploadTask.whenComplete(() {
+      url = ref.getDownloadURL().toString();
+    }).catchError((onError) {
+      print(onError);
+    });
+    return url;
+    var file = pickedImage;
+    var storageRef = FirebaseStorage.instance.ref('rainbow_photos');
+    storageRef.putFile(file).then((result) {
+      storageRef.getDownloadURL().then((result) {
+        _url = (result);
+      });
+    });
+  }
 
   addData() async {
     String temp2 = "";
@@ -72,29 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
     //   print(e.toString());
     // });
   }
-
-//   Future uploadFile() async {
-//     // FirebaseStorage storage = FirebaseStorage.instance;
-//     // String url;
-//     // Reference ref = storage.ref().child("image1" + DateTime.now().toString());
-//     // UploadTask uploadTask = ref.putFile(pickedImage);
-//     // uploadTask.whenComplete(() {
-//     //   url = ref.getDownloadURL().toString();
-//     // }).catchError((onError) {
-//     //   print(onError);
-//     // });
-//     // return url;
-//     var file = pickedImage;
-// //Create a storage ref
-//     var storageRef = FirebaseStorage.instance.ref('rainbow_photos');
-// //Upload file
-//     storageRef.putFile(file).then((result) {
-//       //Get URL and store to pass
-//       storageRef.getDownloadURL().then((result) {
-//         _url = (result);
-//       });
-//     });
-//   }
 
   Future pickImage() async {
     PickedFile tempStore = await ImagePicker()
